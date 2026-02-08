@@ -1,0 +1,4 @@
+{
+  "python.defaultInterpreterPath": "D:/djangoRest/env/Scripts/python.exe",
+  "python.analysis.extraPaths": ["D:/djangoRest/env/Lib/site-packages"]
+}
