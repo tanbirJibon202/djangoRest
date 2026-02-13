@@ -8,7 +8,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email']
 
 class StatusSerializer(serializers.ModelSerializer):
-    user = UserSerializer(many = False)
     class Meta:
         model = Status
         fields = ['id', 'text', 'created_at', 'user']
