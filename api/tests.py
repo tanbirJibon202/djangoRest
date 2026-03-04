@@ -19,15 +19,17 @@ from django.contrib.auth.models import User
 
 class StatusTest(APITestCase):
     def setUp(self):
-        new_user = User(username="tanbirAhamed", password="1234")
+        new_user = User(username="tanbirAhamed", password="123")
         new_user.save()
-        status = Status(text="sample test",user=new_user)
+        status = Status(text="sample test", user=new_user)
         status.save()
 
     def test_create_account(self):
-        url = reverse('status_view')
+        url = reverse("status_view")
         response = self.client.get(url,format='json')
-        print(response)
-        self.assertFalse(response,None)
+        # print(response.data)
+        status_list = response.data
+        self.assertEqual(len(status_list),1)
+        self.assertEqual(response.status_code,200)
         
 
